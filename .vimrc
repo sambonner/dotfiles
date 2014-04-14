@@ -1,4 +1,25 @@
-"#execute pathogen#infect()
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/vundle'
+Plugin 'ervandew/supertab'
+Plugin 'shawncplus/phpcomplete.vim'
+Plugin 'git://drupalcode.org/project/vimrc.git', {'rtp': 'bundle/vim-plugin-for-drupal/'}
+Plugin 'majutsushi/tagbar'
+
+" Supertab config
+let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+highlight   clear
+highlight   Pmenu         ctermfg=0 ctermbg=2
+highlight   PmenuSel      ctermfg=0 ctermbg=7
+highlight   PmenuSbar     ctermfg=7 ctermbg=0
+highlight   PmenuThumb    ctermfg=0 ctermbg=7
+
+" TagBar config
+nmap <F8> :TagbarToggle<CR>
+
 set number
 set mouse=a
 set clipboard=unnamed
