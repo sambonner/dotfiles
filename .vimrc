@@ -8,6 +8,7 @@ Plugin 'ervandew/supertab'
 Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'git://drupalcode.org/project/vimrc.git', {'rtp': 'bundle/vim-plugin-for-drupal/'}
 Plugin 'majutsushi/tagbar'
+Plugin 'jelera/vim-javascript-syntax'
 
 " Supertab config
 let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
