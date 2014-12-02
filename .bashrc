@@ -10,6 +10,29 @@ export HISTCONTROL=ignoredups
 # ... and ignore same sucessive entries.
 export HISTCONTROL=ignoreboth
 
+# make the history file bigger
+export HISTFILESIZE=9000
+# Include dot (.) files in the results of expansion
+shopt -s dotglob
+# Case-insensitive matching for filename expansion
+shopt -s nocaseglob
+# Enable extended pattern matching
+shopt -s extglob
+# Enable options:
+shopt -s cdspell # fixes typos and spelling mistakes using 'cd'
+shopt -s cdable_vars # magic cd variable stuff (man bash) search for "^SHELL BUILTIN COMMANDS"
+shopt -s checkhash # check a command exists before executing it
+shopt -s no_empty_cmd_completion # do not search for possible completions when completion is attempted on an empty line.
+shopt -s cmdhist # attempt to save all lines of a multiple-line command in the same history entry.
+shopt -s histappend histreedit histverify # various history things
+
+
+# make various commands pretty
+alias ls='ls -GhF' #colours and useful bits
+export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
+export CLICOLOR=1
+
+
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
