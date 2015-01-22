@@ -9,6 +9,7 @@ Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'git://drupalcode.org/project/vimrc.git', {'rtp': 'bundle/vim-plugin-for-drupal/'}
 Plugin 'majutsushi/tagbar'
 Plugin 'jelera/vim-javascript-syntax'
+Plugin 'Lokaltog/vim-powerline'
 
 " Supertab config
 let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
@@ -20,6 +21,8 @@ highlight   PmenuThumb    ctermfg=0 ctermbg=7
 
 " TagBar config
 nmap <F8> :TagbarToggle<CR>
+let g:tagbar_show_visibility = 1
+
 
 set number
 set mouse=a
@@ -131,3 +134,7 @@ set incsearch
 set hlsearch
 
 "noremap <buffer> <F2>#d<CR> :source ~/.drupal_vim/.drupal.vimrc<CR>
+"
+" Remap :b# (re-open last file in buffer) to ctrl e
+nmap <C-e> :e#<CR>
+
