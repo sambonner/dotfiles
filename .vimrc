@@ -4,11 +4,21 @@ call vundle#rc()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/vundle'
+" Auto complete with supertab!
 Plugin 'ervandew/supertab'
+" Muuuch better PHP autocompletion than default in ViM
 Plugin 'shawncplus/phpcomplete.vim'
-Plugin 'git://drupalcode.org/project/vimrc.git', {'rtp': 'bundle/vim-plugin-for-drupal/'}
+" Gimme class and function outlines
 Plugin 'majutsushi/tagbar'
+" Drupal plugin
+Plugin 'file:///home/samb/.vim/bundle/vimrc', {'rtp': 'bundle/vim-plugin-for-drupal/'}
+" Syntax highlighting for twig
+Plugin 'evidens/vim-twig'
+" File browser in ViM? Whaaaat!
+Plugin 'scrooloose/nerdtree'
+" Improved javascript highlighting
 Plugin 'jelera/vim-javascript-syntax'
+" Powerline, cause its even awesomer than my homebrewed one!
 Plugin 'Lokaltog/vim-powerline'
 
 " Supertab config
@@ -23,8 +33,14 @@ highlight   PmenuThumb    ctermfg=0 ctermbg=7
 nmap <F8> :TagbarToggle<CR>
 let g:tagbar_show_visibility = 1
 
+" Nerdtree config
+map <C-n> :NERDTreeToggle<CR>
+let g:NERDTreeWinSize=50
 
 set number
+
+" For now, I want mouse support, and I also want to be able to copy to the ubuntu
+" clip board. This needs vim-gnome package to function
 set mouse=a
 set clipboard=unnamed
 "set cc=80
@@ -66,6 +82,7 @@ set background=dark " we are using a dark background
 "run export TERM=xterm-256color in the terminal to make things look right
 let g:solarized_termcolors=256
 colorscheme solarized
+
 "set lsp=1 " space it out a little more (easier to read)
 "set wildmenu " turn on wild menu
 set ruler " Always show current positions along the bottom 
@@ -88,8 +105,7 @@ set noerrorbells " don't make noise
 """""""""""""""""""""""""""""""""""""""
 " Misc stuff to do that makes sense
 """""""""""""""""""""""""""""""""""""""
-set nobackup " turn off file backup, because its fucking balls
-"set nowb
+set nobackup " turn off file backup,
 set noswapfile
 set laststatus=2 " always show the status line
 set nowrap " do not wrap lines
@@ -137,7 +153,10 @@ set incsearch
 set hlsearch
 
 "noremap <buffer> <F2>#d<CR> :source ~/.drupal_vim/.drupal.vimrc<CR>
-"
 " Remap :b# (re-open last file in buffer) to ctrl e
 nmap <C-e> :e#<CR>
 
+" Remember my last place in a file plz
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif  
