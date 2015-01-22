@@ -61,8 +61,11 @@ autocmd BufWritePre *.module,*.install,*.inc,*.php :call StripTrailingWhitespace
 " Theme/Colors
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax on " syntax highlighting on
-"colorscheme zellner 
-set background=light " we are using a dark background
+set background=dark " we are using a dark background
+"Compat mode for solarized, I'm not switching my entire terminal color pallete
+"run export TERM=xterm-256color in the terminal to make things look right
+let g:solarized_termcolors=256
+colorscheme solarized
 "set lsp=1 " space it out a little more (easier to read)
 "set wildmenu " turn on wild menu
 set ruler " Always show current positions along the bottom 
