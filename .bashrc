@@ -12,6 +12,12 @@ export HISTCONTROL=ignoreboth
 
 # make the history file bigger
 export HISTFILESIZE=9000
+# but write each line to history after execution (SO HANDY)
+export PROMPT_COMMAND='history -a'
+
+# Add solarized color support
+export TERM=xterm-256color
+
 # Include dot (.) files in the results of expansion
 shopt -s dotglob
 # Case-insensitive matching for filename expansion
