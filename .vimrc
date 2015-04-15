@@ -20,6 +20,8 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'jelera/vim-javascript-syntax'
 " Powerline, cause its even awesomer than my homebrewed one!
 Plugin 'Lokaltog/vim-powerline'
+"CoffeeScript Support
+Plugin 'kchmck/vim-coffee-script'
 
 " Supertab config
 let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
