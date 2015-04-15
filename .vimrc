@@ -48,6 +48,11 @@ set clipboard=unnamed
 "set cc=80
 hi ColorColumn ctermbg=lightgrey guibg=lightgrey
 
+if (exists('+colorcolumn'))
+    set colorcolumn=80
+    highlight ColorColumn ctermbg=9
+endif
+
 set nocompatible " get out of horrible vi-compatible mode
 filetype on " detect the type of file
 set history=10000 " How many lines of history to remember
