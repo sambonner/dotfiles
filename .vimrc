@@ -22,6 +22,8 @@ Plugin 'jelera/vim-javascript-syntax'
 Plugin 'Lokaltog/vim-powerline'
 "CoffeeScript Support
 Plugin 'kchmck/vim-coffee-script'
+" Match HTML tags
+Plugin 'gregsexton/MatchTag'
 
 " Supertab config
 let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
