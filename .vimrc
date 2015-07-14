@@ -36,6 +36,12 @@ highlight   PmenuThumb    ctermfg=0 ctermbg=7
 " TagBar config
 nmap <F8> :TagbarToggle<CR>
 let g:tagbar_show_visibility = 1
+let g:tagbar_width = 55
+let g:tagbar_sort = 0
+let g:tagbar_show_linenumbers = -1
+let g:tagbar_singleclick = 1
+" Open tagbar automatically when file is supported
+autocmd VimEnter * nested :call tagbar#autoopen(1)
 
 " Nerdtree config
 map <C-n> :NERDTreeToggle<CR>
