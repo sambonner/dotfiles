@@ -24,6 +24,13 @@ Plugin 'Lokaltog/vim-powerline'
 Plugin 'kchmck/vim-coffee-script'
 " Match HTML tags
 Plugin 'gregsexton/MatchTag'
+" Comment multiple lines (there must be a way to do this without a plugin!)
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'marcweber/vim-addon-mw-utils'
+" Better snipmate that works with supertab
+Plugin 'garbas/vim-snipmate'
+
+
 
 " Supertab config
 let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
