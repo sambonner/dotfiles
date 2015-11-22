@@ -31,6 +31,8 @@ Plugin 'garbas/vim-snipmate'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'honza/vim-snippets'
+" Fuzzy finder
+Plugin 'kien/ctrlp.vim'
 
 " Supertab config
 let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
@@ -182,3 +184,7 @@ nmap <C-e> :e#<CR>
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif  
+
+" CtrlP config
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
