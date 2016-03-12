@@ -11,7 +11,7 @@ Plugin 'shawncplus/phpcomplete.vim'
 " Gimme class and function outlines
 Plugin 'majutsushi/tagbar'
 " Drupal plugin
-Plugin 'file:///home/samb/.vim/bundle/vimrc', {'rtp': 'bundle/vim-plugin-for-drupal/'}
+Bundle 'git://drupalcode.org/project/vimrc.git', {'rtp': 'bundle/vim-plugin-for-drupal/'}
 " Syntax highlighting for twig
 Plugin 'evidens/vim-twig'
 " File browser in ViM? Whaaaat!
@@ -33,6 +33,10 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'honza/vim-snippets'
 " Fuzzy finder
 Plugin 'kien/ctrlp.vim'
+" Debugging for pros
+Plugin 'joonty/vdebug'
+" Syntax checking!
+Plugin 'scrooloose/syntastic'
 
 " Supertab config
 let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
