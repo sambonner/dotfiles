@@ -37,6 +37,8 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'joonty/vdebug'
 " Syntax checking!
 Plugin 'scrooloose/syntastic'
+" Better python support
+Plugin 'klen/python-mode'
 
 " Supertab config
 let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
