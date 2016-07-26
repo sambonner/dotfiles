@@ -1,3 +1,8 @@
+" Following lines added by drush vimrc-install on Thu, 20 Aug 2015 05:16:47 +0000.
+set nocompatible
+call pathogen#infect('/home/samb/.drush/vimrc/bundle/{}')
+call pathogen#infect('/home/samb/.vim/bundle/{}')
+" End of vimrc-install additions.
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -39,6 +44,11 @@ Plugin 'joonty/vdebug'
 Plugin 'scrooloose/syntastic'
 " Better python support
 Plugin 'klen/python-mode'
+" Ag support
+"Plugin 'rking/ag.vim'
+
+" Add fzf for fuzzy finding.
+set rtp+=~/.fzf
 
 " Supertab config
 let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
@@ -63,6 +73,9 @@ map <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeWinSize=50
 
 set number
+
+" Set encoding to UTF-8 cause, why the hell wouldn't you?
+set encoding=utf-8
 
 " For now, I want mouse support, and I also want to be able to copy to the ubuntu
 " clip board. This needs vim-gnome package to function
@@ -194,3 +207,17 @@ endif
 " CtrlP config
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+
+" The Silver Searcher
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
+" bind K to grep word under cursor
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
