@@ -110,9 +110,6 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
-#drupal cvs alias
-alias bsod='rdesktop -g 1280x1024 bsod'
-
 alias grep='grep --color=auto'
 alias g='grep -irn --color=auto'
 
@@ -122,7 +119,6 @@ alias l='ls -lFh'     #size,show type,human readable
 alias la='ls -lAFh'   #long list,show almost all,show type,human readable
 alias lr='ls -tRFh'   #sorted by date,recursive,show type,human readable
 alias lt='ls -ltFh'   #long list,sorted by date,show type,human readable
-alias cpc="drush php-eval \"module_load_include('inc', 'scmp_cache', 'scmp_cache.admin'); scmp_cache_flush_cache('cache_panels');\""
 
 function todo {
   if [ $1 ]; then
@@ -162,44 +158,3 @@ function dmod {
   fi
 }
 
-#export PATH=${PATH}:/home/samb/android-sdk-linux/tools:/home/samb/anroid-sdk-linux/platform-tools 
-#“alias android-connect=”mtpfs -o allow_other /media/Nexus10” >> ~/.bashrc
-#echo “alias android-disconnect=\”fusermount -u /media/Nexus10\”
-#alias android-connect="mtpfs -o allow_other /media/GalaxyNexus"
-#alias android-connect="mtpfs -o allow_other /media/Nexus10"
-#alias android-disconnect="fusermount -u /media/Nexus10"
-#alias android-connect="mtpfs -o allow_other /media/Nexus10"
-#alias android-disconnect="fusermount -u /media/Nexus10"
-#alias android-connect="mtpfs -o allow_other /media/GalaxyNexus"
-#alias android-disconnect="fusermount -u /media/GalaxyNexus"
-#alias android-connect="mtpfs -o allow_other /media/GalaxyNexus"
-#alias android-disconnect="fusermount -u /media/GalaxyNexus"
-
-# Function selects Drush 6 if we are in Drupal 8 folder.
-drush() {
-  drush5=/usr/bin/drush # Set your path to Drush 5
-  drush6=/home/sam/drush6/drush # Set your path to Drush 6
-   
-  dir="`pwd`"
-   
-  until [ $dir = "/" ]
-    do
-# Try to find Drupal 7.
-      if [ -f "$dir/includes/database/database.inc" ]; then
-        command $drush5 "$@"
-        return
-      fi
-       
-# Try to find Drupal 8.
-      if [ -f "$dir/core/lib/Drupal.php" ]; then
-        command $drush6 "$@"
-        return
-      fi
-     
-# Go to parrent directory.
-      dir="`dirname $dir`"
-    done
-     
-# Nothing found about Drupal version. Fallback to Drush 5.
-    command $drush5 "$@"
-}
