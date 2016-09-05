@@ -158,3 +158,5 @@ function dmod {
   fi
 }
 
+#coder and phpcs support
+export PATH="$PATH:$HOME/.composer/vendor/bin"
