@@ -46,6 +46,10 @@ Plugin 'scrooloose/syntastic'
 Plugin 'klen/python-mode'
 " Ag support
 "Plugin 'rking/ag.vim'
+" Swap method params quickly
+Plugin 'AndrewRadev/sideways.vim'
+" Better PHP ctags support in tagbar
+Plugin 'vim-php/tagbar-phpctags.vim'
 
 " Add fzf for fuzzy finding.
 set rtp+=~/.fzf
@@ -225,3 +229,6 @@ nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 " Add phpcs and drupal coder support, install instructions from https://www.drupal.org/node/1419988
 let g:syntastic_phpcs_conf=" --standard=DrupalCodingStandard --extensions=php,module,inc,install,test,profile,theme"
 
+" Map sideways arg swapping to useful combos
+nnoremap <c-h> :SidewaysLeft<cr>
+nnoremap <c-l> :SidewaysRight<cr>
