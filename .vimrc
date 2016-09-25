@@ -10,7 +10,7 @@ call vundle#rc()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/vundle'
 " Auto complete with supertab!
-Plugin 'ervandew/supertab'
+"Plugin 'ervandew/supertab'
 " Muuuch better PHP autocompletion than default in ViM
 Plugin 'shawncplus/phpcomplete.vim'
 " Gimme class and function outlines
@@ -32,10 +32,10 @@ Plugin 'gregsexton/MatchTag'
 " Comment multiple lines (there must be a way to do this without a plugin!)
 Plugin 'scrooloose/nerdcommenter'
 " Better snipmate that works with supertab
-Plugin 'garbas/vim-snipmate'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'honza/vim-snippets'
+"Plugin 'garbas/vim-snipmate'
+"Plugin 'MarcWeber/vim-addon-mw-utils'
+"Plugin 'tomtom/tlib_vim'
+"Plugin 'honza/vim-snippets'
 " Fuzzy finder
 Plugin 'kien/ctrlp.vim'
 " Debugging for pros
@@ -45,11 +45,15 @@ Plugin 'scrooloose/syntastic'
 " Better python support
 Plugin 'klen/python-mode'
 " Ag support
-"Plugin 'rking/ag.vim'
+Plugin 'rking/ag.vim'
 " Swap method params quickly
 Plugin 'AndrewRadev/sideways.vim'
 " Better PHP ctags support in tagbar
 Plugin 'vim-php/tagbar-phpctags.vim'
+" Gulp, lets try youcompleteme...
+Plugin 'Valloric/YouCompleteMe'
+" Trying out ultisnips
+Plugin 'SirVer/ultisnips'
 
 " Add fzf for fuzzy finding.
 set rtp+=~/.fzf
@@ -232,3 +236,8 @@ let g:syntastic_phpcs_conf=" --standard=DrupalCodingStandard --extensions=php,mo
 " Map sideways arg swapping to useful combos
 nnoremap <c-h> :SidewaysLeft<cr>
 nnoremap <c-l> :SidewaysRight<cr>
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
