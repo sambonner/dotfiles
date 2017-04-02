@@ -22,7 +22,13 @@ Plugin 'evidens/vim-twig'
 " File browser in ViM? Whaaaat!
 Plugin 'scrooloose/nerdtree'
 " Improved javascript highlighting
-Plugin 'jelera/vim-javascript-syntax'
+Plugin 'pangloss/vim-javascript'
+" React JSX highlighting
+Plugin 'mxw/vim-jsx'
+" Improved indenting
+Plugin 'nathanaelkane/vim-indent-guides'
+" Improved delimiting
+Plugin 'Raimondi/delimitMate'
 " Powerline, cause its even awesomer than my homebrewed one!
 Plugin 'Lokaltog/vim-powerline'
 "CoffeeScript Support
@@ -241,3 +247,10 @@ nnoremap <c-l> :SidewaysRight<cr>
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" Js lint plz 
+let g:syntastic_javascript_checkers = ['jshint']
+
+" Deliminate linesplit
+imap <C-c> <CR><Esc>O
+
