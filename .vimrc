@@ -1,7 +1,7 @@
 " Following lines added by drush vimrc-install on Thu, 20 Aug 2015 05:16:47 +0000.
 set nocompatible
-call pathogen#infect('/home/samb/.drush/vimrc/bundle/{}')
-call pathogen#infect('/home/samb/.vim/bundle/{}')
+"call pathogen#infect('/home/samb/.drush/vimrc/bundle/{}')
+"call pathogen#infect('/home/samb/.vim/bundle/{}')
 " End of vimrc-install additions.
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/vundle/
@@ -37,6 +37,8 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'gregsexton/MatchTag'
 " Comment multiple lines (there must be a way to do this without a plugin!)
 Plugin 'scrooloose/nerdcommenter'
+" Better JSON syntax highlight
+Plugin 'elzr/vim-json'
 " Better snipmate that works with supertab
 "Plugin 'garbas/vim-snipmate'
 "Plugin 'MarcWeber/vim-addon-mw-utils'
@@ -60,6 +62,10 @@ Plugin 'vim-php/tagbar-phpctags.vim'
 Plugin 'Valloric/YouCompleteMe'
 " Trying out ultisnips
 Plugin 'SirVer/ultisnips'
+" Better JS autocompletion
+Plugin 'ternjs/tern_for_vim'
+" Jsdoc support
+Plugin 'heavenshell/vim-jsdoc'
 
 " Add fzf for fuzzy finding.
 set rtp+=~/.fzf
@@ -120,7 +126,7 @@ function! StripTrailingWhitespace()
   endif
   normal `Z
 endfunction
-autocmd BufWritePre *.module,*.install,*.inc,*.php :call StripTrailingWhitespace()
+autocmd BufWritePre *.module,*.install,*.inc,*.php, *.py, *.js, *.scss, *.jsx, *.css :call StripTrailingWhitespace()
 
 " Highlight redundant whitespaces and tabs.
 :highlight RedundantSpaces ctermbg=red guibg=red
@@ -249,8 +255,13 @@ let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " Js lint plz 
-let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_javascript_checkers = ['eslint']
 
 " Deliminate linesplit
 imap <C-c> <CR><Esc>O
 
+" Create a new dir automatically when opening a file
+au BufNewFile * :exe ': !mkdir -p ' . escape(fnamemodify(bufname('%'),':p:h'),'#% \\')
+
+" Format JSON strings real nice-like (handy for debugging)
+com! FormatJSON %!python -m json.tool
